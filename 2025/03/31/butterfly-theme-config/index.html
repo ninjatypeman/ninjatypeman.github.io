@@ -98,7 +98,25 @@
 
       const theme = saveToLocal.get('theme')
     
-          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
         
       
       const asideStatus = saveToLocal.get('aside-status')
@@ -120,7 +138,7 @@
   algolia: undefined,
   localSearch: undefined,
   translate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
   copy: {
     success: 'Copy Successful',
     error: 'Copy Failed',
@@ -152,10 +170,10 @@
     toc: true,
     rightside: false,
   },
-  autoDarkmode: false
+  autoDarkmode: true
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: 'Butterfly 主题配置',
-  isHighlightShrink: false,
+  isHighlightShrink: undefined,
   isToc: false,
   pageType: 'post'
 }</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">幼稚園畫本</span></a><a class="nav-page-title" href="/"><span class="site-name">Butterfly 主题配置</span></a></span><div id="menus"></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Butterfly 主题配置</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-03-31T09:36:33.955Z" title="Created 2025-03-31 17:36:33">2025-03-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-03-31T11:42:21.623Z" title="Updated 2025-03-31 19:42:21">2025-03-31</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><ol>
