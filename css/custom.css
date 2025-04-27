@@ -1,0 +1,25 @@
+
+.toc ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.toc li {
+  margin-left: 0;
+}
+
+/* 
+.toc ul {
+list-style-type: none;
+padding-left: 0;
+margin-left: 0;
+}
+
+.toc li::before {
+content: "👉"; /* 这里是你想用的 emoji，🔹 你可以换成其他的 */
+margin-right: 8px; /* 让 emoji 和文本之间有点间距 */
+}
+ .toc li {
+margin-left: 0;
+} */
