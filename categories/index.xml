@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on 332C</title>
+    <link>https://ninjatypeman.github.io/categories/</link>
+    <description>Recent content in Categories on 332C</description>
+    <generator>Hugo -- 0.146.7</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Apr 2025 18:10:18 +0800</lastBuildDate>
+    <atom:link href="https://ninjatypeman.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux</title>
+      <link>https://ninjatypeman.github.io/categories/linux/</link>
+      <pubDate>Fri, 18 Apr 2025 18:10:18 +0800</pubDate>
+      <guid>https://ninjatypeman.github.io/categories/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software</title>
+      <link>https://ninjatypeman.github.io/categories/software/</link>
+      <pubDate>Mon, 14 Apr 2025 23:05:22 +0800</pubDate>
+      <guid>https://ninjatypeman.github.io/categories/software/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blog</title>
+      <link>https://ninjatypeman.github.io/categories/blog/</link>
+      <pubDate>Sun, 06 Apr 2025 22:04:04 +0800</pubDate>
+      <guid>https://ninjatypeman.github.io/categories/blog/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

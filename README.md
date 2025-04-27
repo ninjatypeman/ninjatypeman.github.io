@@ -1,1 +1,0 @@
-# ninjatypeman.github.io
