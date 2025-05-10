@@ -16,18 +16,11 @@
       <description>安装 Fedora Workstation 41 之后的一些配置</description>
     </item>
     <item>
-      <title>安装和配置 Obsidian</title>
+      <title>Fedora 安装 Obsidian</title>
       <link>https://ninjatypeman.github.io/posts/obsidian-config/</link>
       <pubDate>Mon, 14 Apr 2025 23:05:22 +0800</pubDate>
       <guid>https://ninjatypeman.github.io/posts/obsidian-config/</guid>
       <description>Fedora Workstation 41 安装 Obsidian、配置 Obsidian 代理</description>
-    </item>
-    <item>
-      <title>几个实用的 Gnome 扩展</title>
-      <link>https://ninjatypeman.github.io/posts/gnome-extensions/</link>
-      <pubDate>Sat, 12 Apr 2025 15:33:10 +0800</pubDate>
-      <guid>https://ninjatypeman.github.io/posts/gnome-extensions/</guid>
-      <description>分享一些 Fedora Workstation 上使用的 Gnome 扩展</description>
     </item>
     <item>
       <title>Fedora 安装 Fcitx5</title>

@@ -3,10 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ninjatypeman.github.io/</loc>
-    <lastmod>2025-04-26T23:59:46+08:00</lastmod>
+    <lastmod>2025-05-10T18:22:43+08:00</lastmod>
+  </url><url>
+    <loc>https://ninjatypeman.github.io/tags/github/</loc>
+    <lastmod>2025-05-10T18:22:43+08:00</lastmod>
+  </url><url>
+    <loc>https://ninjatypeman.github.io/tags/linux/</loc>
+    <lastmod>2025-05-10T18:22:43+08:00</lastmod>
   </url><url>
     <loc>https://ninjatypeman.github.io/posts/</loc>
-    <lastmod>2025-04-26T23:59:46+08:00</lastmod>
+    <lastmod>2025-05-10T18:22:43+08:00</lastmod>
+  </url><url>
+    <loc>https://ninjatypeman.github.io/tags/ssh/</loc>
+    <lastmod>2025-05-10T18:22:43+08:00</lastmod>
+  </url><url>
+    <loc>https://ninjatypeman.github.io/posts/ssh-note/</loc>
+    <lastmod>2025-05-10T18:22:43+08:00</lastmod>
+  </url><url>
+    <loc>https://ninjatypeman.github.io/tags/</loc>
+    <lastmod>2025-05-10T18:22:43+08:00</lastmod>
   </url><url>
     <loc>https://ninjatypeman.github.io/categories/</loc>
     <lastmod>2025-04-18T18:10:18+08:00</lastmod>
@@ -20,11 +35,11 @@
     <loc>https://ninjatypeman.github.io/categories/linux/</loc>
     <lastmod>2025-04-18T18:10:18+08:00</lastmod>
   </url><url>
-    <loc>https://ninjatypeman.github.io/tags/linux/</loc>
-    <lastmod>2025-04-18T18:10:18+08:00</lastmod>
+    <loc>https://ninjatypeman.github.io/tags/git/</loc>
+    <lastmod>2025-04-17T13:54:09+08:00</lastmod>
   </url><url>
-    <loc>https://ninjatypeman.github.io/tags/</loc>
-    <lastmod>2025-04-18T18:10:18+08:00</lastmod>
+    <loc>https://ninjatypeman.github.io/posts/git-note/</loc>
+    <lastmod>2025-04-17T13:54:09+08:00</lastmod>
   </url><url>
     <loc>https://ninjatypeman.github.io/posts/samba-linux/</loc>
     <lastmod>2025-04-17T02:47:51+08:00</lastmod>
@@ -47,6 +62,9 @@
     <loc>https://ninjatypeman.github.io/tags/appimage/</loc>
     <lastmod>2025-04-14T23:05:22+08:00</lastmod>
   </url><url>
+    <loc>https://ninjatypeman.github.io/posts/obsidian-config/</loc>
+    <lastmod>2025-04-14T23:05:22+08:00</lastmod>
+  </url><url>
     <loc>https://ninjatypeman.github.io/tags/obsidian/</loc>
     <lastmod>2025-04-14T23:05:22+08:00</lastmod>
   </url><url>
@@ -55,15 +73,6 @@
   </url><url>
     <loc>https://ninjatypeman.github.io/categories/software/</loc>
     <lastmod>2025-04-14T23:05:22+08:00</lastmod>
-  </url><url>
-    <loc>https://ninjatypeman.github.io/posts/obsidian-config/</loc>
-    <lastmod>2025-04-14T23:05:22+08:00</lastmod>
-  </url><url>
-    <loc>https://ninjatypeman.github.io/tags/gnome/</loc>
-    <lastmod>2025-04-12T15:33:10+08:00</lastmod>
-  </url><url>
-    <loc>https://ninjatypeman.github.io/posts/gnome-extensions/</loc>
-    <lastmod>2025-04-12T15:33:10+08:00</lastmod>
   </url><url>
     <loc>https://ninjatypeman.github.io/tags/fcitx5/</loc>
     <lastmod>2025-04-07T15:41:59+08:00</lastmod>

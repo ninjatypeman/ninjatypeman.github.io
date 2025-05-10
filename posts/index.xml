@@ -6,14 +6,28 @@
     <description>Recent content in Posts on 332C</description>
     <generator>Hugo -- 0.146.7</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 18 Apr 2025 18:10:18 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 10 May 2025 18:22:43 +0800</lastBuildDate>
     <atom:link href="https://ninjatypeman.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SSH 笔记</title>
+      <link>https://ninjatypeman.github.io/posts/ssh-note/</link>
+      <pubDate>Sat, 10 May 2025 18:22:43 +0800</pubDate>
+      <guid>https://ninjatypeman.github.io/posts/ssh-note/</guid>
+      <description>SSH 相关笔记</description>
+    </item>
     <item>
       <title>Fedora 41 配置</title>
       <link>https://ninjatypeman.github.io/posts/fedora-config/</link>
       <pubDate>Fri, 18 Apr 2025 18:10:18 +0800</pubDate>
       <guid>https://ninjatypeman.github.io/posts/fedora-config/</guid>
       <description>安装 Fedora Workstation 41 之后的一些配置</description>
+    </item>
+    <item>
+      <title>Git 笔记</title>
+      <link>https://ninjatypeman.github.io/posts/git-note/</link>
+      <pubDate>Thu, 17 Apr 2025 13:54:09 +0800</pubDate>
+      <guid>https://ninjatypeman.github.io/posts/git-note/</guid>
+      <description>Git 相关笔记</description>
     </item>
     <item>
       <title>Fedora 上使用 Samba</title>
@@ -30,18 +44,11 @@
       <description>Docker 安装 v2rayA、配置透明代理</description>
     </item>
     <item>
-      <title>安装和配置 Obsidian</title>
+      <title>Fedora 安装 Obsidian</title>
       <link>https://ninjatypeman.github.io/posts/obsidian-config/</link>
       <pubDate>Mon, 14 Apr 2025 23:05:22 +0800</pubDate>
       <guid>https://ninjatypeman.github.io/posts/obsidian-config/</guid>
       <description>Fedora Workstation 41 安装 Obsidian、配置 Obsidian 代理</description>
-    </item>
-    <item>
-      <title>几个实用的 Gnome 扩展</title>
-      <link>https://ninjatypeman.github.io/posts/gnome-extensions/</link>
-      <pubDate>Sat, 12 Apr 2025 15:33:10 +0800</pubDate>
-      <guid>https://ninjatypeman.github.io/posts/gnome-extensions/</guid>
-      <description>分享一些 Fedora Workstation 上使用的 Gnome 扩展</description>
     </item>
     <item>
       <title>Fedora 安装 Fcitx5</title>

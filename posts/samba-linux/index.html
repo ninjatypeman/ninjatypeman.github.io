@@ -73,8 +73,8 @@
   "keywords": [
     "Samba", "SMB"
   ],
-  "articleBody": "# 安装 sudo dnf install samba samba-client samba-common # 创建文件夹、赋权 mkdir -p ~/Shared chmod 777 ~/Shared # 追加内容到 /etc/samba/smb.conf sudo bash -c 'cat \u003e\u003e /etc/samba/smb.conf \u003c",
-  "wordCount" : "153",
+  "articleBody": "安装 Samba sudo dnf install samba samba-client samba-common 创建共享文件夹 mkdir -p ~/Shared chmod 777 ~/Shared # 赋权 配置共享文件夹 追加内容到 /etc/samba/smb.conf\nsudo bash -c 'cat \u003e\u003e /etc/samba/smb.conf \u003c",
+  "wordCount" : "174",
   "inLanguage": "en",
   "datePublished": "2025-04-17T02:47:51+08:00",
   "dateModified": "2025-04-17T02:47:51+08:00",
@@ -154,17 +154,43 @@
     <div class="post-meta"><span title='2025-04-17 02:47:51 +0800 CST'>2025-04-17</span>&nbsp;·&nbsp;John
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  <div class="post-content"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 安装</span>
-</span></span><span class="line"><span class="cl">sudo dnf install samba samba-client samba-common
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 创建文件夹、赋权</span>
-</span></span><span class="line"><span class="cl">mkdir -p ~/Shared
-</span></span><span class="line"><span class="cl">chmod <span class="m">777</span> ~/Shared
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 追加内容到 /etc/samba/smb.conf</span>
-</span></span><span class="line"><span class="cl">sudo bash -c <span class="s1">&#39;cat &gt;&gt; /etc/samba/smb.conf &lt;&lt;EOF
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%ae%89%e8%a3%85-samba" aria-label="安装 Samba">安装 Samba</a></li>
+                <li>
+                    <a href="#%e5%88%9b%e5%bb%ba%e5%85%b1%e4%ba%ab%e6%96%87%e4%bb%b6%e5%a4%b9" aria-label="创建共享文件夹">创建共享文件夹</a></li>
+                <li>
+                    <a href="#%e9%85%8d%e7%bd%ae%e5%85%b1%e4%ba%ab%e6%96%87%e4%bb%b6%e5%a4%b9" aria-label="配置共享文件夹">配置共享文件夹</a></li>
+                <li>
+                    <a href="#%e6%b7%bb%e5%8a%a0-samba-%e7%94%a8%e6%88%b7" aria-label="添加 Samba 用户">添加 Samba 用户</a></li>
+                <li>
+                    <a href="#%e9%85%8d%e7%bd%ae%e9%98%b2%e7%81%ab%e5%a2%99" aria-label="配置防火墙">配置防火墙</a></li>
+                <li>
+                    <a href="#%e9%85%8d%e7%bd%ae-selinux" aria-label="配置 SELinux">配置 SELinux</a></li>
+                <li>
+                    <a href="#%e9%85%8d%e7%bd%ae%e5%bc%80%e6%9c%ba%e5%90%af%e5%8a%a8" aria-label="配置开机启动">配置开机启动</a></li>
+                <li>
+                    <a href="#%e8%bf%9e%e6%8e%a5" aria-label="连接">连接</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h3 id="安装-samba">安装 Samba<a hidden class="anchor" aria-hidden="true" href="#安装-samba">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install samba samba-client samba-common
+</span></span></code></pre></div><h3 id="创建共享文件夹">创建共享文件夹<a hidden class="anchor" aria-hidden="true" href="#创建共享文件夹">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p ~/Shared
+</span></span><span class="line"><span class="cl">chmod <span class="m">777</span> ~/Shared      <span class="c1"># 赋权</span>
+</span></span></code></pre></div><h3 id="配置共享文件夹">配置共享文件夹<a hidden class="anchor" aria-hidden="true" href="#配置共享文件夹">#</a></h3>
+<p>追加内容到 /etc/samba/smb.conf</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo bash -c <span class="s1">&#39;cat &gt;&gt; /etc/samba/smb.conf &lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s1">[Shared]
 </span></span></span><span class="line"><span class="cl"><span class="s1">    path = /home/YOUR_USERNAME/Shared
 </span></span></span><span class="line"><span class="cl"><span class="s1">    writable = yes
@@ -174,25 +200,24 @@
 </span></span></span><span class="line"><span class="cl"><span class="s1">    directory mask = 0777
 </span></span></span><span class="line"><span class="cl"><span class="s1">    force user = YOUR_USERNAME
 </span></span></span><span class="line"><span class="cl"><span class="s1">EOF&#39;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 添加 Samba 用户，需确保这个用户在系统中存在</span>
-</span></span><span class="line"><span class="cl">sudo smbpasswd -a YOUR_USERNAME
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 配置防火墙放行 Samba 服务</span>
-</span></span><span class="line"><span class="cl">sudo firewall-cmd --permanent --add-service<span class="o">=</span>samba
+</span></span></code></pre></div><h3 id="添加-samba-用户">添加 Samba 用户<a hidden class="anchor" aria-hidden="true" href="#添加-samba-用户">#</a></h3>
+<p>需确保这个用户在系统中存在</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo smbpasswd -a YOUR_USERNAME
+</span></span></code></pre></div><h3 id="配置防火墙">配置防火墙<a hidden class="anchor" aria-hidden="true" href="#配置防火墙">#</a></h3>
+<p>配置防火墙放行 Samba 服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo firewall-cmd --permanent --add-service<span class="o">=</span>samba
 </span></span><span class="line"><span class="cl">sudo firewall-cmd --reload
 </span></span><span class="line"><span class="cl">sudo firewall-cmd --list-all
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#  配置 SELinux 支持 Samba 访问 home 目录</span>
-</span></span><span class="line"><span class="cl">sudo setsebool -P samba_enable_home_dirs on
+</span></span></code></pre></div><h3 id="配置-selinux">配置 SELinux<a hidden class="anchor" aria-hidden="true" href="#配置-selinux">#</a></h3>
+<p>配置 SELinux 支持 Samba 访问 home 目录</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo setsebool -P samba_enable_home_dirs on
 </span></span><span class="line"><span class="cl">sudo chcon -t samba_share_t ~/Shared -R
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 启动并启用</span>
-</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> --now smb
-</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> --now nmb
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 连接</span>
-</span></span><span class="line"><span class="cl">smb://192.168.XXX.XXX/Shared
+</span></span></code></pre></div><h3 id="配置开机启动">配置开机启动<a hidden class="anchor" aria-hidden="true" href="#配置开机启动">#</a></h3>
+<p>立即启动、开机自启动</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> --now smb nmb
+</span></span><span class="line"><span class="cl">sudo systemctl status smb nmb
+</span></span></code></pre></div><h3 id="连接">连接<a hidden class="anchor" aria-hidden="true" href="#连接">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">smb://192.168.XXX.XXX/Shared
 </span></span></code></pre></div>
 
   </div>
@@ -203,10 +228,10 @@
       <li><a href="https://ninjatypeman.github.io/tags/smb/">SMB</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://ninjatypeman.github.io/posts/fedora-config/">
+  <a class="prev" href="https://ninjatypeman.github.io/posts/git-note/">
     <span class="title">« Prev</span>
     <br>
-    <span>Fedora 41 配置</span>
+    <span>Git 笔记</span>
   </a>
   <a class="next" href="https://ninjatypeman.github.io/posts/tproxy-v2raya/">
     <span class="title">Next »</span>
