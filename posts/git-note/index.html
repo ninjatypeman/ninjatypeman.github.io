@@ -73,7 +73,7 @@
   "keywords": [
     "Git", "GitHub"
   ],
-  "articleBody": "Focus on what matters instead of fighting with Git.\nCONFIG git config -l # 查看配置 git config --global --list # 查看全局配置 git init # 初始化仓库 git config user.name \"Your Name\" # 设置用户名 git config user.email \"email@example.com\" # 设置邮箱 git remote add origin https://github.com/username/repo-name.git # 添加远程源 git pull --rebase # 临时 rebase git add . git commit -m \"comment\" # Stage Commit git push -u origin main # 第一次 push BRANCH # 创建分支，两条命令等价 git checkout -b branch-a git switch -c branch-a # Add \u0026 Commit git status git add . git commit -m \"comment\" # push 分支到远程 git push origin branch-a # 切换分支 git checkout main git switch main MERGE 团队协作，需要记录谁在哪个分支干了什么。 不太关注提交历史是否线性清爽。 小团队或时间紧，不需要提前整理提交。 git switch main # 切换到主分支 git pull origin main # 更新主分支 git merge origin/branch-a # 合并分支 # 解决冲突 \u0026 测试通过后 git push origin main # 推送合并结果 REBASE 保持提交历史线性，避免不必要的 merge commit 减少合并冲突的复杂度（因为已经提前处理过了） git switch branch-a git rebase main # 如果提示 “Current branch branch-a is up to date.”，则继续下一步 # 解决冲突、测试后 git switch main git merge feature/branch-a git push origin main 多个 GitHub 账户 编辑 ~/.ssh/config\n# 账号A配置 Host gh-tom # 别名，可以设置为用户名方便配置、避免混淆 HostName github.com User git IdentityFile ~/.ssh/id_rsa_tom # 指定私钥 # 账号B配置 Host gh-jerry HostName github.com User git IdentityFile ~/.ssh/id_rsa_jerry 在各自的仓库修改远程地址：\n# username 替换为真实的 GitHub 用户名 git remote set-url origin git@gh-tom:/repo-name.git git remote set-url origin git@gh-jerry:/repo-name.git Others 修改远程仓库名后，本地更新 URL\ngit remote set-url origin https://github.com/new-username/repo.git ",
+  "articleBody": "Focus on what matters instead of fighting with Git.\nConfig git config -l # 查看配置 git config --global --list # 查看全局配置 git init # 初始化仓库 git config user.name \"Your Name\" # 设置用户名 git config user.email \"email@example.com\" # 设置邮箱 git remote add origin https://github.com/username/repo-name.git # 添加远程源 git pull --rebase # 临时 rebase git add . git commit -m \"comment\" # Stage Commit git push -u origin main # 第一次 push Branch # 创建分支，两条命令等价 git checkout -b branch-a git switch -c branch-a # Add \u0026 Commit git status git add . git commit -m \"comment\" # push 分支到远程 git push origin branch-a # 切换分支 git checkout main git switch main Merge 团队协作，需要记录谁在哪个分支干了什么。 不太关注提交历史是否线性清爽。 小团队或时间紧，不需要提前整理提交。 git switch main # 切换到主分支 git pull origin main # 更新主分支 git merge origin/branch-a # 合并分支 # 解决冲突 \u0026 测试通过后 git push origin main # 推送合并结果 Rebase 保持提交历史线性，避免不必要的 merge commit 减少合并冲突的复杂度（因为已经提前处理过了） git switch branch-a git rebase main # 如果提示 “Current branch branch-a is up to date.”，则继续下一步 # 解决冲突、测试后 git switch main git merge feature/branch-a git push origin main 多个 GitHub 账户 编辑 ~/.ssh/config\n# 账号A配置 Host gh-tom # 别名，可以设置为用户名方便配置、避免混淆 HostName github.com User git IdentityFile ~/.ssh/id_rsa_tom # 指定私钥 # 账号B配置 Host gh-jerry HostName github.com User git IdentityFile ~/.ssh/id_rsa_jerry 在各自的仓库修改远程地址：\n# username 替换为真实的 GitHub 用户名 git remote set-url origin git@gh-tom:/repo-name.git git remote set-url origin git@gh-jerry:/repo-name.git Others 修改远程仓库名后，本地更新 URL\ngit remote set-url origin https://github.com/new-username/repo.git ",
   "wordCount" : "468",
   "inLanguage": "en",
   "datePublished": "2025-04-17T13:54:09+08:00",
@@ -162,13 +162,13 @@
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#config" aria-label="CONFIG">CONFIG</a></li>
+                    <a href="#config" aria-label="Config">Config</a></li>
                 <li>
-                    <a href="#branch" aria-label="BRANCH">BRANCH</a></li>
+                    <a href="#branch" aria-label="Branch">Branch</a></li>
                 <li>
-                    <a href="#merge" aria-label="MERGE">MERGE</a></li>
+                    <a href="#merge" aria-label="Merge">Merge</a></li>
                 <li>
-                    <a href="#rebase" aria-label="REBASE">REBASE</a></li>
+                    <a href="#rebase" aria-label="Rebase">Rebase</a></li>
                 <li>
                     <a href="#%e5%a4%9a%e4%b8%aa-github-%e8%b4%a6%e6%88%b7" aria-label="多个 GitHub 账户">多个 GitHub 账户</a></li>
                 <li>
@@ -180,7 +180,7 @@
 </div>
 
   <div class="post-content"><p><em><strong>Focus on what matters instead of fighting with Git.</strong></em></p>
-<h3 id="config">CONFIG<a hidden class="anchor" aria-hidden="true" href="#config">#</a></h3>
+<h3 id="config">Config<a hidden class="anchor" aria-hidden="true" href="#config">#</a></h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config -l                                 <span class="c1"># 查看配置</span>
 </span></span><span class="line"><span class="cl">git config --global --list                    <span class="c1"># 查看全局配置</span>
 </span></span><span class="line"><span class="cl">git init                                      <span class="c1"># 初始化仓库</span>
@@ -191,7 +191,7 @@
 </span></span><span class="line"><span class="cl">git add .
 </span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;comment&#34;</span>                       <span class="c1"># Stage Commit</span>
 </span></span><span class="line"><span class="cl">git push -u origin main                       <span class="c1"># 第一次 push</span>
-</span></span></code></pre></div><h3 id="branch">BRANCH<a hidden class="anchor" aria-hidden="true" href="#branch">#</a></h3>
+</span></span></code></pre></div><h3 id="branch">Branch<a hidden class="anchor" aria-hidden="true" href="#branch">#</a></h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 创建分支，两条命令等价</span>
 </span></span><span class="line"><span class="cl">git checkout -b branch-a
 </span></span><span class="line"><span class="cl">git switch -c branch-a
@@ -204,7 +204,7 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 切换分支</span>
 </span></span><span class="line"><span class="cl">git checkout main
 </span></span><span class="line"><span class="cl">git switch main
-</span></span></code></pre></div><h3 id="merge">MERGE<a hidden class="anchor" aria-hidden="true" href="#merge">#</a></h3>
+</span></span></code></pre></div><h3 id="merge">Merge<a hidden class="anchor" aria-hidden="true" href="#merge">#</a></h3>
 <ul>
 <li>团队协作，需要记录谁在哪个分支干了什么。</li>
 <li>不太关注提交历史是否线性清爽。</li>
@@ -215,7 +215,7 @@
 </span></span><span class="line"><span class="cl">git merge origin/branch-a  <span class="c1"># 合并分支</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 解决冲突 &amp; 测试通过后</span>
 </span></span><span class="line"><span class="cl">git push origin main       <span class="c1"># 推送合并结果</span>
-</span></span></code></pre></div><h3 id="rebase">REBASE<a hidden class="anchor" aria-hidden="true" href="#rebase">#</a></h3>
+</span></span></code></pre></div><h3 id="rebase">Rebase<a hidden class="anchor" aria-hidden="true" href="#rebase">#</a></h3>
 <ul>
 <li>保持提交历史线性，避免不必要的 merge commit</li>
 <li>减少合并冲突的复杂度（因为已经提前处理过了）</li>
