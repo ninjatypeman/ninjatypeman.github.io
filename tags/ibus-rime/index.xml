@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ibus-Rime on 332C</title>
+    <link>https://ninjatypeman.github.io/tags/ibus-rime/</link>
+    <description>Recent content in Ibus-Rime on 332C</description>
+    <generator>Hugo -- 0.146.7</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 20 May 2025 01:24:49 +0800</lastBuildDate>
+    <atom:link href="https://ninjatypeman.github.io/tags/ibus-rime/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fedora 42 安装、配置 ibus-rime</title>
+      <link>https://ninjatypeman.github.io/posts/ibus-rime-fedora/</link>
+      <pubDate>Tue, 20 May 2025 01:24:49 +0800</pubDate>
+      <guid>https://ninjatypeman.github.io/posts/ibus-rime-fedora/</guid>
+      <description>Fedora Linux 42 (Workstation Edition) 安装、配置 ibus-rime（2025）</description>
+    </item>
+  </channel>
+</rss>
