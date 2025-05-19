@@ -6,8 +6,22 @@
     <description>Recent content in Tags on 332C</description>
     <generator>Hugo -- 0.146.7</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 May 2025 18:22:43 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 15 May 2025 22:09:58 +0800</lastBuildDate>
     <atom:link href="https://ninjatypeman.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fedora</title>
+      <link>https://ninjatypeman.github.io/tags/fedora/</link>
+      <pubDate>Thu, 15 May 2025 22:09:58 +0800</pubDate>
+      <guid>https://ninjatypeman.github.io/tags/fedora/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://ninjatypeman.github.io/tags/linux/</link>
+      <pubDate>Thu, 15 May 2025 22:09:58 +0800</pubDate>
+      <guid>https://ninjatypeman.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
     <item>
       <title>GitHub</title>
       <link>https://ninjatypeman.github.io/tags/github/</link>
@@ -16,24 +30,10 @@
       <description></description>
     </item>
     <item>
-      <title>Linux</title>
-      <link>https://ninjatypeman.github.io/tags/linux/</link>
-      <pubDate>Sat, 10 May 2025 18:22:43 +0800</pubDate>
-      <guid>https://ninjatypeman.github.io/tags/linux/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>SSH</title>
       <link>https://ninjatypeman.github.io/tags/ssh/</link>
       <pubDate>Sat, 10 May 2025 18:22:43 +0800</pubDate>
       <guid>https://ninjatypeman.github.io/tags/ssh/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Fedora</title>
-      <link>https://ninjatypeman.github.io/tags/fedora/</link>
-      <pubDate>Fri, 18 Apr 2025 18:10:18 +0800</pubDate>
-      <guid>https://ninjatypeman.github.io/tags/fedora/</guid>
       <description></description>
     </item>
     <item>
@@ -69,27 +69,6 @@
       <link>https://ninjatypeman.github.io/tags/v2raya/</link>
       <pubDate>Wed, 16 Apr 2025 21:40:45 +0800</pubDate>
       <guid>https://ninjatypeman.github.io/tags/v2raya/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>AppImage</title>
-      <link>https://ninjatypeman.github.io/tags/appimage/</link>
-      <pubDate>Mon, 14 Apr 2025 23:05:22 +0800</pubDate>
-      <guid>https://ninjatypeman.github.io/tags/appimage/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Obsidian</title>
-      <link>https://ninjatypeman.github.io/tags/obsidian/</link>
-      <pubDate>Mon, 14 Apr 2025 23:05:22 +0800</pubDate>
-      <guid>https://ninjatypeman.github.io/tags/obsidian/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Proxy</title>
-      <link>https://ninjatypeman.github.io/tags/proxy/</link>
-      <pubDate>Mon, 14 Apr 2025 23:05:22 +0800</pubDate>
-      <guid>https://ninjatypeman.github.io/tags/proxy/</guid>
       <description></description>
     </item>
     <item>

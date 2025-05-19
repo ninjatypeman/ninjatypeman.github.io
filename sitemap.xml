@@ -5,13 +5,28 @@
     <loc>https://ninjatypeman.github.io/</loc>
     <lastmod>2025-05-15T22:09:58+08:00</lastmod>
   </url><url>
+    <loc>https://ninjatypeman.github.io/categories/</loc>
+    <lastmod>2025-05-15T22:09:58+08:00</lastmod>
+  </url><url>
+    <loc>https://ninjatypeman.github.io/tags/fedora/</loc>
+    <lastmod>2025-05-15T22:09:58+08:00</lastmod>
+  </url><url>
+    <loc>https://ninjatypeman.github.io/categories/linux/</loc>
+    <lastmod>2025-05-15T22:09:58+08:00</lastmod>
+  </url><url>
+    <loc>https://ninjatypeman.github.io/tags/linux/</loc>
+    <lastmod>2025-05-15T22:09:58+08:00</lastmod>
+  </url><url>
     <loc>https://ninjatypeman.github.io/posts/</loc>
     <lastmod>2025-05-15T22:09:58+08:00</lastmod>
   </url><url>
-    <loc>https://ninjatypeman.github.io/tags/github/</loc>
-    <lastmod>2025-05-10T18:22:43+08:00</lastmod>
+    <loc>https://ninjatypeman.github.io/tags/</loc>
+    <lastmod>2025-05-15T22:09:58+08:00</lastmod>
   </url><url>
-    <loc>https://ninjatypeman.github.io/tags/linux/</loc>
+    <loc>https://ninjatypeman.github.io/posts/fedora42-todo/</loc>
+    <lastmod>2025-05-15T22:09:58+08:00</lastmod>
+  </url><url>
+    <loc>https://ninjatypeman.github.io/tags/github/</loc>
     <lastmod>2025-05-10T18:22:43+08:00</lastmod>
   </url><url>
     <loc>https://ninjatypeman.github.io/tags/ssh/</loc>
@@ -20,19 +35,7 @@
     <loc>https://ninjatypeman.github.io/posts/ssh-note/</loc>
     <lastmod>2025-05-10T18:22:43+08:00</lastmod>
   </url><url>
-    <loc>https://ninjatypeman.github.io/tags/</loc>
-    <lastmod>2025-05-10T18:22:43+08:00</lastmod>
-  </url><url>
-    <loc>https://ninjatypeman.github.io/categories/</loc>
-    <lastmod>2025-04-18T18:10:18+08:00</lastmod>
-  </url><url>
-    <loc>https://ninjatypeman.github.io/tags/fedora/</loc>
-    <lastmod>2025-04-18T18:10:18+08:00</lastmod>
-  </url><url>
     <loc>https://ninjatypeman.github.io/posts/fedora-config/</loc>
-    <lastmod>2025-04-18T18:10:18+08:00</lastmod>
-  </url><url>
-    <loc>https://ninjatypeman.github.io/categories/linux/</loc>
     <lastmod>2025-04-18T18:10:18+08:00</lastmod>
   </url><url>
     <loc>https://ninjatypeman.github.io/tags/git/</loc>
@@ -58,21 +61,6 @@
   </url><url>
     <loc>https://ninjatypeman.github.io/posts/tproxy-v2raya/</loc>
     <lastmod>2025-04-16T21:40:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ninjatypeman.github.io/tags/appimage/</loc>
-    <lastmod>2025-04-14T23:05:22+08:00</lastmod>
-  </url><url>
-    <loc>https://ninjatypeman.github.io/posts/obsidian-config/</loc>
-    <lastmod>2025-04-14T23:05:22+08:00</lastmod>
-  </url><url>
-    <loc>https://ninjatypeman.github.io/tags/obsidian/</loc>
-    <lastmod>2025-04-14T23:05:22+08:00</lastmod>
-  </url><url>
-    <loc>https://ninjatypeman.github.io/tags/proxy/</loc>
-    <lastmod>2025-04-14T23:05:22+08:00</lastmod>
-  </url><url>
-    <loc>https://ninjatypeman.github.io/categories/software/</loc>
-    <lastmod>2025-04-14T23:05:22+08:00</lastmod>
   </url><url>
     <loc>https://ninjatypeman.github.io/tags/fcitx5/</loc>
     <lastmod>2025-04-07T15:41:59+08:00</lastmod>
