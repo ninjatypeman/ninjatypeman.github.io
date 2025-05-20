@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>Fedora 42 安装、配置 ibus-rime | 332C</title>
 <meta name="keywords" content="ibus, ibus-rime">
-<meta name="description" content="Fedora Linux 42 (Workstation Edition) 安装、配置 ibus-rime（2025）">
+<meta name="description" content="在Fedora Linux 42 (Workstation Edition) 上安装、配置 ibus-rime &#43; 雾凇拼音">
 <meta name="author" content="John">
 <link rel="canonical" href="https://ninjatypeman.github.io/posts/ibus-rime-fedora/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css" integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF&#43;13Dyqob6ASlTrTye8=" rel="preload stylesheet" as="style">
@@ -30,7 +30,7 @@
 </noscript><meta property="og:url" content="https://ninjatypeman.github.io/posts/ibus-rime-fedora/">
   <meta property="og:site_name" content="332C">
   <meta property="og:title" content="Fedora 42 安装、配置 ibus-rime">
-  <meta property="og:description" content="Fedora Linux 42 (Workstation Edition) 安装、配置 ibus-rime（2025）">
+  <meta property="og:description" content="在Fedora Linux 42 (Workstation Edition) 上安装、配置 ibus-rime &#43; 雾凇拼音">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -41,7 +41,7 @@
     <meta property="article:tag" content="Fedora">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fedora 42 安装、配置 ibus-rime">
-<meta name="twitter:description" content="Fedora Linux 42 (Workstation Edition) 安装、配置 ibus-rime（2025）">
+<meta name="twitter:description" content="在Fedora Linux 42 (Workstation Edition) 上安装、配置 ibus-rime &#43; 雾凇拼音">
 
 
 <script type="application/ld+json">
@@ -70,12 +70,12 @@
   "@type": "BlogPosting",
   "headline": "Fedora 42 安装、配置 ibus-rime",
   "name": "Fedora 42 安装、配置 ibus-rime",
-  "description": "Fedora Linux 42 (Workstation Edition) 安装、配置 ibus-rime（2025）",
+  "description": "在Fedora Linux 42 (Workstation Edition) 上安装、配置 ibus-rime + 雾凇拼音",
   "keywords": [
     "ibus", "ibus-rime"
   ],
-  "articleBody": " 本文不包含 ibus-rime “美化”，主打能用就行；另外，如果你看到有其他文章使用 ibus-setup 来配置的请直接忽略\n安装 ibus-rime 1 sudo dnf install ibus-rime # 安装完成后重新登入 配置 ibus-rime 遇到下面的任何配置步骤不生效时，多尝试重新登入或重启\n添加 Rime Settings » Keyboard » Add Input Source » Chinese » Chinese(Rime) » Add\n设置环境变量 1 2 3 4 5 vi ~/.bash_profile # 加入三行内容: export XMODIFIERS=@im=ibus export GTK_IM_MODULE=ibus export QT_IM_MODULE=ibus 解决候选框偏移的问题 参考 Fedora配置Rime中州韵输入法\n1 2 3 4 vi ~/.bash_profile export XMODIFIERS=@im=ibus # 仅保留此行 # export GTK_IM_MODULE=ibus # export QT_IM_MODULE=ibus 安装 plum（东风破）和雾凇拼音 参考 雾凇拼音\n1 2 3 4 5 6 7 8 9 10 # 安装 plum（东风破） cd ~ git clone https://github.com/rime/plum.git plum # 卸载 plum 只需要删除 ~/plum 文件夹即可 # 安装雾凇拼音 cd ~/plum bash rime-install iDvel/rime-ice:others/recipes/full # 安装或更新全部文件 bash rime-install iDvel/rime-ice:others/recipes/config:schema=flypy ibus restart 小鹤双拼 1 2 # 将方案列表的 schema: double_pinyin_flypy 这行移动到最前面，其他输入方案同理 vi ~/.config/ibus/rime/default.yaml 水平候选框 1 2 3 4 5 6 # 新建 ~/.config/ibus/rime/ibus_rime.custom.yaml vi ~/.config/ibus/rime/ibus_rime.custom.yaml # 添加： patch: \"style/horizontal\": true 候选词个数 1 2 vi ~/.config/ibus/rime/default.yaml # page_size: 5 修改为 page_size: 9 关闭候选词拼音提示 1 2 vi ~/.config/ibus/rime/double_pinyin_flypy.schema.yaml spelling_hints: 8 # 注释这行 候选词字号 安装 IBus Tweaker 扩展，使用该扩展可以调整候选词字号\n解决 Flatpak 应用无法输入中文 运行以下命令或者通过 Flatseal 图形界面添加环境变量，重新登入即可正常输入，但是部分 Flatpak 应用有候选框偏移的问题，暂时无解\n1 flatpak override --user --all --env=GTK_IM_MODULE=ibus --env=QT_IM_MODULE=ibus --env=XMODIFIERS=@im=ibus 快捷键 1 2 # 方案选单：F4 # 繁简切换：Ctrl + Shift + 4 ",
-  "wordCount" : "496",
+  "articleBody": " 本文不包含 ibus-rime “美化”，主打能用就行\n安装 ibus-rime 1 sudo dnf install ibus-rime # 安装完成后重新登入 配置 ibus-rime 遇到下面的任何配置步骤不生效时，多尝试重新登入或重启\n添加 Rime Settings » Keyboard » Add Input Source » Chinese » Chinese(Rime) » Add\n设置环境变量 1 2 3 4 5 vi ~/.bash_profile # 加入三行内容: export XMODIFIERS=@im=ibus export GTK_IM_MODULE=ibus export QT_IM_MODULE=ibus 解决候选框偏移 参考 Fedora配置Rime中州韵输入法\n如果出现候选框偏移的问题，可以注释或者删掉上面添加的环境变量后面两行\n1 2 3 4 vi ~/.bash_profile export XMODIFIERS=@im=ibus # 仅保留此行 # export GTK_IM_MODULE=ibus # export QT_IM_MODULE=ibus 解决 Flatpak 应用无法输入中文 运行以下命令或者通过 Flatseal 图形界面添加环境变量，重新登入即可正常输入中文，但是部分 Flatpak 应用有候选框偏移的问题，暂时无解\n1 flatpak override --user --all --env=GTK_IM_MODULE=ibus --env=QT_IM_MODULE=ibus --env=XMODIFIERS=@im=ibus 安装 plum（东风破）和雾凇拼音 参考 雾凇拼音\n1 2 3 4 5 6 7 8 9 10 # 安装 plum（东风破） cd ~ git clone https://github.com/rime/plum.git plum # 卸载 plum 只需要删除 ~/plum 文件夹即可 # 安装雾凇拼音 cd ~/plum bash rime-install iDvel/rime-ice:others/recipes/full # 安装或更新全部文件 bash rime-install iDvel/rime-ice:others/recipes/config:schema=flypy ibus restart 小鹤双拼 1 2 # 将方案列表的 schema: double_pinyin_flypy 这行移动到最前面，其他输入方案同理 vi ~/.config/ibus/rime/default.yaml 水平候选框 1 2 3 4 5 6 # 新建 ~/.config/ibus/rime/ibus_rime.custom.yaml vi ~/.config/ibus/rime/ibus_rime.custom.yaml # 添加： patch: \"style/horizontal\": true 候选词个数 1 2 vi ~/.config/ibus/rime/default.yaml # page_size: 5 修改为 page_size: 9 关闭候选词拼音提示 1 2 vi ~/.config/ibus/rime/double_pinyin_flypy.schema.yaml spelling_hints: 8 # 注释这行 候选词字号 安装 IBus Tweaker 扩展，使用该扩展可以调整候选词字号\n快捷键 1 2 # 方案选单：F4 # 繁简切换：Ctrl + Shift + 4 ",
+  "wordCount" : "503",
   "inLanguage": "en",
   "datePublished": "2025-05-20T01:24:49+08:00",
   "dateModified": "2025-05-20T01:24:49+08:00",
@@ -172,7 +172,9 @@
                     <li>
                         <a href="#%e8%ae%be%e7%bd%ae%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f" aria-label="设置环境变量">设置环境变量</a></li>
                     <li>
-                        <a href="#%e8%a7%a3%e5%86%b3%e5%80%99%e9%80%89%e6%a1%86%e5%81%8f%e7%a7%bb%e7%9a%84%e9%97%ae%e9%a2%98" aria-label="解决候选框偏移的问题">解决候选框偏移的问题</a></li>
+                        <a href="#%e8%a7%a3%e5%86%b3%e5%80%99%e9%80%89%e6%a1%86%e5%81%8f%e7%a7%bb" aria-label="解决候选框偏移">解决候选框偏移</a></li>
+                    <li>
+                        <a href="#%e8%a7%a3%e5%86%b3-flatpak-%e5%ba%94%e7%94%a8%e6%97%a0%e6%b3%95%e8%be%93%e5%85%a5%e4%b8%ad%e6%96%87" aria-label="解决 Flatpak 应用无法输入中文">解决 Flatpak 应用无法输入中文</a></li>
                     <li>
                         <a href="#%e5%ae%89%e8%a3%85-plum%e4%b8%9c%e9%a3%8e%e7%a0%b4%e5%92%8c%e9%9b%be%e5%87%87%e6%8b%bc%e9%9f%b3" aria-label="安装 plum（东风破）和雾凇拼音">安装 plum（东风破）和雾凇拼音</a></li>
                     <li>
@@ -186,8 +188,6 @@
                     <li>
                         <a href="#%e5%80%99%e9%80%89%e8%af%8d%e5%ad%97%e5%8f%b7" aria-label="候选词字号">候选词字号</a></li>
                     <li>
-                        <a href="#%e8%a7%a3%e5%86%b3-flatpak-%e5%ba%94%e7%94%a8%e6%97%a0%e6%b3%95%e8%be%93%e5%85%a5%e4%b8%ad%e6%96%87" aria-label="解决 Flatpak 应用无法输入中文">解决 Flatpak 应用无法输入中文</a></li>
-                    <li>
                         <a href="#%e5%bf%ab%e6%8d%b7%e9%94%ae" aria-label="快捷键">快捷键</a>
                     </li>
                 </ul>
@@ -197,7 +197,7 @@
         </details>
     </div>
   <div class="post-content"><blockquote>
-<p>本文不包含 ibus-rime “美化”，主打能用就行；另外，如果你看到有其他文章使用 ibus-setup 来配置的请直接忽略</p></blockquote>
+<p>本文不包含 ibus-rime “美化”，主打能用就行</p></blockquote>
 <h3 id="安装-ibus-rime">安装 ibus-rime<a hidden class="anchor" aria-hidden="true" href="#安装-ibus-rime">#</a></h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -229,9 +229,10 @@
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">QT_IM_MODULE</span><span class="o">=</span>ibus
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="解决候选框偏移的问题">解决候选框偏移的问题<a hidden class="anchor" aria-hidden="true" href="#解决候选框偏移的问题">#</a></h4>
+</div><h4 id="解决候选框偏移">解决候选框偏移<a hidden class="anchor" aria-hidden="true" href="#解决候选框偏移">#</a></h4>
 <blockquote>
 <p>参考 <a href="https://www.cnblogs.com/bearpipy/p/18364767">Fedora配置Rime中州韵输入法</a></p></blockquote>
+<p>如果出现候选框偏移的问题，可以注释或者删掉上面添加的环境变量后面两行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -244,6 +245,16 @@
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">XMODIFIERS</span><span class="o">=</span>@im<span class="o">=</span>ibus    <span class="c1"># 仅保留此行</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># export GTK_IM_MODULE=ibus</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># export QT_IM_MODULE=ibus</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="解决-flatpak-应用无法输入中文">解决 Flatpak 应用无法输入中文<a hidden class="anchor" aria-hidden="true" href="#解决-flatpak-应用无法输入中文">#</a></h4>
+<p>运行以下命令或者通过 <a href="https://flathub.org/apps/com.github.tchx84.Flatseal">Flatseal</a> 图形界面添加环境变量，重新登入即可正常输入中文，但是部分 Flatpak 应用有候选框偏移的问题，暂时无解</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">flatpak override --user --all --env<span class="o">=</span><span class="nv">GTK_IM_MODULE</span><span class="o">=</span>ibus --env<span class="o">=</span><span class="nv">QT_IM_MODULE</span><span class="o">=</span>ibus --env<span class="o">=</span><span class="nv">XMODIFIERS</span><span class="o">=</span>@im<span class="o">=</span>ibus
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="安装-plum东风破和雾凇拼音">安装 plum（东风破）和雾凇拼音<a hidden class="anchor" aria-hidden="true" href="#安装-plum东风破和雾凇拼音">#</a></h4>
@@ -329,17 +340,7 @@
 </div>
 </div><h4 id="候选词字号">候选词字号<a hidden class="anchor" aria-hidden="true" href="#候选词字号">#</a></h4>
 <p>安装 <a href="https://extensions.gnome.org/extension/2820/ibus-tweaker/">IBus Tweaker</a> 扩展，使用该扩展可以调整候选词字号</p>
-<h4 id="解决-flatpak-应用无法输入中文">解决 Flatpak 应用无法输入中文<a hidden class="anchor" aria-hidden="true" href="#解决-flatpak-应用无法输入中文">#</a></h4>
-<p>运行以下命令或者通过 <a href="https://flathub.org/apps/com.github.tchx84.Flatseal">Flatseal</a> 图形界面添加环境变量，重新登入即可正常输入，但是部分 Flatpak 应用有候选框偏移的问题，暂时无解</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">flatpak override --user --all --env<span class="o">=</span><span class="nv">GTK_IM_MODULE</span><span class="o">=</span>ibus --env<span class="o">=</span><span class="nv">QT_IM_MODULE</span><span class="o">=</span>ibus --env<span class="o">=</span><span class="nv">XMODIFIERS</span><span class="o">=</span>@im<span class="o">=</span>ibus
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="快捷键">快捷键<a hidden class="anchor" aria-hidden="true" href="#快捷键">#</a></h4>
+<h4 id="快捷键">快捷键<a hidden class="anchor" aria-hidden="true" href="#快捷键">#</a></h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -361,6 +362,11 @@
       <li><a href="https://ninjatypeman.github.io/tags/fedora/">Fedora</a></li>
     </ul>
 <nav class="paginav">
+  <a class="prev" href="https://ninjatypeman.github.io/posts/free-ds-openrouter/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Use free DeepSeek via Open WebUI &#43; OpenRouter</span>
+  </a>
   <a class="next" href="https://ninjatypeman.github.io/posts/fedora42-todo/">
     <span class="title">Next »</span>
     <br>
