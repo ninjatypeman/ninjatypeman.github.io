@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Fcitx5 on 332C</title>
-    <link>https://ninjatypeman.github.io/tags/fcitx5/</link>
-    <description>Recent content in Fcitx5 on 332C</description>
+    <title>Fcitx 5 on 332C</title>
+    <link>https://ninjatypeman.github.io/tags/fcitx-5/</link>
+    <description>Recent content in Fcitx 5 on 332C</description>
     <generator>Hugo -- 0.146.7</generator>
     <language>en</language>
     <lastBuildDate>Mon, 07 Apr 2025 15:41:59 +0800</lastBuildDate>
-    <atom:link href="https://ninjatypeman.github.io/tags/fcitx5/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ninjatypeman.github.io/tags/fcitx-5/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Fedora 安装 Fcitx5</title>
+      <title>Fedora 安装中文输入法（Fcitx 5）</title>
       <link>https://ninjatypeman.github.io/posts/fcitx5-fedora/</link>
       <pubDate>Mon, 07 Apr 2025 15:41:59 +0800</pubDate>
       <guid>https://ninjatypeman.github.io/posts/fcitx5-fedora/</guid>
-      <description>在 Fedora Workstation 41 上安装 Fcitx5 输入法</description>
+      <description>Fedora (Workstation) 上安装 Fcitx 5 框架并配置中文输入法</description>
     </item>
   </channel>
 </rss>

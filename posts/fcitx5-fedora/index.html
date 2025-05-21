@@ -5,9 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Fedora 安装 Fcitx5 | 332C</title>
+<title>Fedora 安装中文输入法（Fcitx 5） | 332C</title>
 <meta name="keywords" content="fcitx, fcitx5, 输入法">
-<meta name="description" content="在 Fedora Workstation 41 上安装 Fcitx5 输入法">
+<meta name="description" content="Fedora (Workstation) 上安装 Fcitx 5 框架并配置中文输入法">
 <meta name="author" content="John">
 <link rel="canonical" href="https://ninjatypeman.github.io/posts/fcitx5-fedora/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css" integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF&#43;13Dyqob6ASlTrTye8=" rel="preload stylesheet" as="style">
@@ -29,19 +29,20 @@
     </style>
 </noscript><meta property="og:url" content="https://ninjatypeman.github.io/posts/fcitx5-fedora/">
   <meta property="og:site_name" content="332C">
-  <meta property="og:title" content="Fedora 安装 Fcitx5">
-  <meta property="og:description" content="在 Fedora Workstation 41 上安装 Fcitx5 输入法">
+  <meta property="og:title" content="Fedora 安装中文输入法（Fcitx 5）">
+  <meta property="og:description" content="Fedora (Workstation) 上安装 Fcitx 5 框架并配置中文输入法">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-04-07T15:41:59+08:00">
     <meta property="article:modified_time" content="2025-04-07T15:41:59+08:00">
-    <meta property="article:tag" content="Fcitx5">
+    <meta property="article:tag" content="Fcitx 5">
     <meta property="article:tag" content="Fedora">
     <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="IME">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fedora 安装 Fcitx5">
-<meta name="twitter:description" content="在 Fedora Workstation 41 上安装 Fcitx5 输入法">
+<meta name="twitter:title" content="Fedora 安装中文输入法（Fcitx 5）">
+<meta name="twitter:description" content="Fedora (Workstation) 上安装 Fcitx 5 框架并配置中文输入法">
 
 
 <script type="application/ld+json">
@@ -58,7 +59,7 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "Fedora 安装 Fcitx5",
+      "name": "Fedora 安装中文输入法（Fcitx 5）",
       "item": "https://ninjatypeman.github.io/posts/fcitx5-fedora/"
     }
   ]
@@ -68,14 +69,14 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Fedora 安装 Fcitx5",
-  "name": "Fedora 安装 Fcitx5",
-  "description": "在 Fedora Workstation 41 上安装 Fcitx5 输入法",
+  "headline": "Fedora 安装中文输入法（Fcitx 5）",
+  "name": "Fedora 安装中文输入法（Fcitx 5）",
+  "description": "Fedora (Workstation) 上安装 Fcitx 5 框架并配置中文输入法",
   "keywords": [
     "fcitx", "fcitx5", "输入法"
   ],
-  "articleBody": "如果是 Gnome，有直接能用的 ibus 词库的话，可以导入词库直接使用， ibus-rime 似乎问题有点多，不建议使用；如果想折腾，可以考虑 Fcitx5\n安装 Fcitx5 使用系统内置的包管理器安装（dnf 是 Fedora 内置的包管理器）：\n1 2 3 4 # 安装命令 sudo dnf install fcitx5 fcitx5-chinese-addons fcitx5-configtool fcitx5-rime fcitx5-qt fcitx5-gtk # 卸载命令： sudo dnf remove \"fcitx5*\" 雾凇拼音 雾凇拼音——长期维护的简体词库\n1 2 3 4 5 6 # 创建文件夹（如果不存在） mkdir -p ~/.local/share/fcitx5/rime/ # 克隆雾凇拼音这个Rime配置到本地（我克隆到了 ~/Downloads/ 目录） git clone https://github.com/iDvel/rime-ice.git rime --depth 1 # 复制上面克隆到本地的文件夹内的所有文件到刚创建的文件夹 cp ~/Downloads/rime/* ~/.local/share/fcitx5/rime 选择输入方案 我使用小鹤双拼方案，如果你使用其他方案，也可以按需调整\n1 2 # 编辑default.yaml配置文件，把 schema: double_pinyin_flypy 这行移动到方案列表（schema_list）的最前面 vi ~/.local/share/fcitx5/rime/default.yaml 同样在 default.yaml 文件内，调整候选词个数：\n1 page_size: 9 关闭候选词拼音注释 默认候选词会有拼音注释，比如：你好[ni hao]，编辑 double_pinyin_flypy.schema.yaml（编辑哪个文件看你使用什么方案），注释下面这两行就可以关闭\n1 2 spelling_hints: 8 always_show_comments: true 然后打开 Fcitx5 Configuration 添加 Rime，自带的英文可以删掉\n环境变量 编辑 ~/.bash_profile，添加下面的内容：\n1 2 3 4 5 # 注意第三行 @im=fcitx 不要用双引号包围 export GTK_IM_MODULE=fcitx export QT_IM_MODULE=fcitx export XMODIFIERS=@im=fcitx export INPUT_METHOD=fcitx 重新加载配置 通过 Gnome Tweaks 设置开机启动，重新登录或者重启，然后打字测试\n简单优化 安装 Input Method Panel 插件，实现 UI 统一、托盘显示输入法图标，候选词字体大小可以在插件里调整 🔚\n参考 Fcitx5，RIME，rime-ice\n",
-  "wordCount" : "608",
+  "articleBody": "安装 Fcitx 5 安装 Fcitx 5 主程序和一些相关的模块，参考 I18N/Fcitx5\n1 2 sudo dnf install fcitx5 fcitx5-chinese-addons fcitx5-configtool fcitx5-rime fcitx5-qt fcitx5-gtk sudo dnf remove \"fcitx5*\" # 这是卸载命令 下载词库 雾凇拼音——长期维护的简体词库\n1 2 3 4 5 6 # 创建文件夹（如果不存在） mkdir -p ~/.local/share/fcitx5/rime/ # 克隆雾凇拼音这个Rime配置到本地（我克隆到了 ~/Downloads 目录） git clone https://github.com/iDvel/rime-ice.git rime --depth 1 # 复制上面克隆到本地的文件夹内的所有文件到刚创建的文件夹 cp ~/Downloads/rime/* ~/.local/share/fcitx5/rime 简单配置 通过快捷键选择输入方案\n调整每页候选词个数\n编辑 ~/.local/share/fcitx5/rime/default.yaml 文件，修改候选词个数：\n1 2 # ~/.local/share/fcitx5/rime/default.yaml page_size: 9 关闭候选词拼音注释 默认候选框会显示拼音注释，比如：你好[ni hao]，我使用小鹤双拼，所以编辑 ~/.local/share/fcitx5/rime/double_pinyin_flypy.schema.yaml，注释下面这两行就可以关闭\n1 2 3 # ~/.local/share/fcitx5/rime/double_pinyin_flypy.schema.yaml spelling_hints: 8 always_show_comments: true 然后打开 Fcitx5 Configuration 这个图形化工具添加 Rime\n环境变量 编辑 ~/.bash_profile，添加下面三行：\n1 2 3 export GTK_IM_MODULE=fcitx export QT_IM_MODULE=fcitx export XMODIFIERS=@im=fcitx 重新加载配置 通过 Gnome Tweaks 设置开机启动，重新登录或者重启，然后打字测试\nGnome 扩展 安装 Input Method Panel 扩展以实现 UI 统一、托盘显示输入法图标、调整候选词字号等 🔚\n",
+  "wordCount" : "444",
   "inLanguage": "en",
   "datePublished": "2025-04-07T15:41:59+08:00",
   "dateModified": "2025-04-07T15:41:59+08:00",
@@ -150,7 +151,7 @@
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      Fedora 安装 Fcitx5
+      Fedora 安装中文输入法（Fcitx 5）
     </h1>
     <div class="post-meta"><span title='2025-04-07 15:41:59 +0800 CST'>2025-04-07</span>&nbsp;·&nbsp;John
 
@@ -163,45 +164,30 @@
 
             <div class="inner"><ul>
                     <li>
-                        <a href="#%e5%ae%89%e8%a3%85-fcitx5" aria-label="安装 Fcitx5">安装 Fcitx5</a></li>
+                        <a href="#%e5%ae%89%e8%a3%85-fcitx-5" aria-label="安装 Fcitx 5">安装 Fcitx 5</a></li>
                     <li>
-                        <a href="#%e9%9b%be%e5%87%87%e6%8b%bc%e9%9f%b3" aria-label="雾凇拼音">雾凇拼音</a></li>
+                        <a href="#%e4%b8%8b%e8%bd%bd%e8%af%8d%e5%ba%93" aria-label="下载词库">下载词库</a></li>
                     <li>
-                        <a href="#%e9%80%89%e6%8b%a9%e8%be%93%e5%85%a5%e6%96%b9%e6%a1%88" aria-label="选择输入方案">选择输入方案</a></li>
-                    <li>
-                        <a href="#%e5%85%b3%e9%97%ad%e5%80%99%e9%80%89%e8%af%8d%e6%8b%bc%e9%9f%b3%e6%b3%a8%e9%87%8a" aria-label="关闭候选词拼音注释">关闭候选词拼音注释</a></li>
-                    <li>
-                        <a href="#%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f" aria-label="环境变量">环境变量</a></li>
-                    <li>
-                        <a href="#%e9%87%8d%e6%96%b0%e5%8a%a0%e8%bd%bd%e9%85%8d%e7%bd%ae" aria-label="重新加载配置">重新加载配置</a></li>
-                    <li>
-                        <a href="#%e7%ae%80%e5%8d%95%e4%bc%98%e5%8c%96" aria-label="简单优化">简单优化</a></li>
-                    <li>
-                        <a href="#%e5%8f%82%e8%80%83" aria-label="参考">参考</a>
+                        <a href="#%e7%ae%80%e5%8d%95%e9%85%8d%e7%bd%ae" aria-label="简单配置">简单配置</a>
                     </li>
                 </ul>
             </div>
         </details>
     </div>
-  <div class="post-content"><p>如果是 Gnome，有直接能用的 ibus 词库的话，可以导入词库直接使用， ibus-rime 似乎问题有点多，不建议使用；如果想折腾，可以考虑 Fcitx5</p>
-<h3 id="安装-fcitx5">安装 Fcitx5<a hidden class="anchor" aria-hidden="true" href="#安装-fcitx5">#</a></h3>
-<p>使用系统内置的包管理器安装（dnf 是 Fedora 内置的包管理器）：</p>
+  <div class="post-content"><h3 id="安装-fcitx-5">安装 <a href="https://fcitx-im.org/wiki/Install_Fcitx_5/zh-cn">Fcitx 5</a><a hidden class="anchor" aria-hidden="true" href="#安装-fcitx-5">#</a></h3>
+<p>安装 Fcitx 5 主程序和一些相关的模块，参考 <a href="https://fedoraproject.org/wiki/I18N/Fcitx5">I18N/Fcitx5</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 安装命令</span>
-</span></span><span class="line"><span class="cl">sudo dnf install fcitx5 fcitx5-chinese-addons fcitx5-configtool fcitx5-rime fcitx5-qt fcitx5-gtk
-</span></span><span class="line"><span class="cl"><span class="c1"># 卸载命令：</span>
-</span></span><span class="line"><span class="cl">sudo dnf remove <span class="s2">&#34;fcitx5*&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install fcitx5 fcitx5-chinese-addons fcitx5-configtool fcitx5-rime fcitx5-qt fcitx5-gtk
+</span></span><span class="line"><span class="cl">sudo dnf remove <span class="s2">&#34;fcitx5*&#34;</span>   <span class="c1"># 这是卸载命令</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="雾凇拼音">雾凇拼音<a hidden class="anchor" aria-hidden="true" href="#雾凇拼音">#</a></h3>
-<p>雾凇拼音——长期维护的简体词库</p>
+</div><h3 id="下载词库">下载词库<a hidden class="anchor" aria-hidden="true" href="#下载词库">#</a></h3>
+<p><a href="https://github.com/iDvel/rime-ice">雾凇拼音</a>——长期维护的简体词库</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -214,85 +200,89 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 创建文件夹（如果不存在）</span>
 </span></span><span class="line"><span class="cl">mkdir -p ~/.local/share/fcitx5/rime/
-</span></span><span class="line"><span class="cl"><span class="c1"># 克隆雾凇拼音这个Rime配置到本地（我克隆到了 ~/Downloads/ 目录）</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 克隆雾凇拼音这个Rime配置到本地（我克隆到了 ~/Downloads 目录）</span>
 </span></span><span class="line"><span class="cl">git clone https://github.com/iDvel/rime-ice.git rime --depth <span class="m">1</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 复制上面克隆到本地的文件夹内的所有文件到刚创建的文件夹</span>
 </span></span><span class="line"><span class="cl">cp ~/Downloads/rime/* ~/.local/share/fcitx5/rime
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="选择输入方案">选择输入方案<a hidden class="anchor" aria-hidden="true" href="#选择输入方案">#</a></h3>
-<p>我使用小鹤双拼方案，如果你使用其他方案，也可以按需调整</p>
+</div><h3 id="简单配置">简单配置<a hidden class="anchor" aria-hidden="true" href="#简单配置">#</a></h3>
+<ul>
+<li>
+<p>通过快捷键选择输入方案</p>
+</li>
+<li>
+<p>调整每页候选词个数</p>
+</li>
+</ul>
+<p>编辑 <em><strong>~/.local/share/fcitx5/rime/default.yaml</strong></em> 文件，修改候选词个数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 编辑default.yaml配置文件，把 schema: double_pinyin_flypy 这行移动到方案列表（schema_list）的最前面</span>
-</span></span><span class="line"><span class="cl">vi ~/.local/share/fcitx5/rime/default.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>同样在 <em><strong>default.yaml</strong></em> 文件内，调整候选词个数：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">page_size</span><span class="p">:</span><span class="w"> </span><span class="m">9</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># ~/.local/share/fcitx5/rime/default.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">page_size</span><span class="p">:</span><span class="w"> </span><span class="m">9</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="关闭候选词拼音注释">关闭候选词拼音注释<a hidden class="anchor" aria-hidden="true" href="#关闭候选词拼音注释">#</a></h3>
-<p>默认候选词会有拼音注释，比如：你好[ni hao]，编辑 <em><strong>double_pinyin_flypy.schema.yaml</strong></em>（编辑哪个文件看你使用什么方案），注释下面这两行就可以关闭</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spelling_hints</span><span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">always_show_comments</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>然后打开 Fcitx5 Configuration 添加 Rime，自带的英文可以删掉</p>
-<h3 id="环境变量">环境变量<a hidden class="anchor" aria-hidden="true" href="#环境变量">#</a></h3>
-<p>编辑 <em><strong>~/.bash_profile</strong></em>，添加下面的内容：</p>
+</div><ul>
+<li>关闭候选词拼音注释</li>
+</ul>
+<p>默认候选框会显示拼音注释，比如：你好[ni hao]，我使用小鹤双拼，所以编辑 <em><strong>~/.local/share/fcitx5/rime/double_pinyin_flypy.schema.yaml</strong></em>，注释下面这两行就可以关闭</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 注意第三行 @im=fcitx 不要用双引号包围</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">GTK_IM_MODULE</span><span class="o">=</span>fcitx
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># ~/.local/share/fcitx5/rime/double_pinyin_flypy.schema.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spelling_hints</span><span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">always_show_comments</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后打开 Fcitx5 Configuration 这个图形化工具添加 Rime</p>
+<ul>
+<li>环境变量</li>
+</ul>
+<p>编辑 <em><strong>~/.bash_profile</strong></em>，添加下面三行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">GTK_IM_MODULE</span><span class="o">=</span>fcitx
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">QT_IM_MODULE</span><span class="o">=</span>fcitx
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">XMODIFIERS</span><span class="o">=</span>@im<span class="o">=</span>fcitx
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">INPUT_METHOD</span><span class="o">=</span>fcitx
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="重新加载配置">重新加载配置<a hidden class="anchor" aria-hidden="true" href="#重新加载配置">#</a></h3>
+</div><ul>
+<li>重新加载配置</li>
+</ul>
 <p>通过 Gnome Tweaks 设置开机启动，重新登录或者重启，然后打字测试</p>
-<h3 id="简单优化">简单优化<a hidden class="anchor" aria-hidden="true" href="#简单优化">#</a></h3>
-<p>安装 Input Method Panel 插件，实现 UI 统一、托盘显示输入法图标，候选词字体大小可以在插件里调整 🔚</p>
-<h3 id="参考">参考<a hidden class="anchor" aria-hidden="true" href="#参考">#</a></h3>
-<p><a href="https://fcitx-im.org/wiki/Install_Fcitx_5/zh-cn">Fcitx5</a>，<a href="https://rime.im/download/">RIME</a>，<a href="https://github.com/iDvel/rime-ice">rime-ice</a></p>
+<ul>
+<li>Gnome 扩展</li>
+</ul>
+<p>安装 Input Method Panel 扩展以实现 UI 统一、托盘显示输入法图标、调整候选词字号等 🔚</p>
 
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://ninjatypeman.github.io/tags/fcitx5/">Fcitx5</a></li>
+      <li><a href="https://ninjatypeman.github.io/tags/fcitx-5/">Fcitx 5</a></li>
       <li><a href="https://ninjatypeman.github.io/tags/fedora/">Fedora</a></li>
       <li><a href="https://ninjatypeman.github.io/tags/linux/">Linux</a></li>
+      <li><a href="https://ninjatypeman.github.io/tags/ime/">IME</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://ninjatypeman.github.io/posts/tproxy-v2raya/">
+  <a class="prev" href="https://ninjatypeman.github.io/posts/samba-linux/">
     <span class="title">« Prev</span>
     <br>
-    <span>v2rayA 透明代理</span>
+    <span>Fedora 上使用 Samba</span>
   </a>
   <a class="next" href="https://ninjatypeman.github.io/posts/hugo-deploy/">
     <span class="title">Next »</span>
@@ -304,8 +294,8 @@
 
 <ul class="share-buttons">
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Fedora 安装 Fcitx5 on x"
-            href="https://x.com/intent/tweet/?text=Fedora%20%e5%ae%89%e8%a3%85%20Fcitx5&amp;url=https%3a%2f%2fninjatypeman.github.io%2fposts%2ffcitx5-fedora%2f&amp;hashtags=Fcitx5%2cFedora%2cLinux">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Fedora 安装中文输入法（Fcitx 5） on x"
+            href="https://x.com/intent/tweet/?text=Fedora%20%e5%ae%89%e8%a3%85%e4%b8%ad%e6%96%87%e8%be%93%e5%85%a5%e6%b3%95%ef%bc%88Fcitx%205%ef%bc%89&amp;url=https%3a%2f%2fninjatypeman.github.io%2fposts%2ffcitx5-fedora%2f&amp;hashtags=Fcitx5%2cFedora%2cLinux%2cIME">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
@@ -313,8 +303,8 @@
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Fedora 安装 Fcitx5 on linkedin"
-            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fninjatypeman.github.io%2fposts%2ffcitx5-fedora%2f&amp;title=Fedora%20%e5%ae%89%e8%a3%85%20Fcitx5&amp;summary=Fedora%20%e5%ae%89%e8%a3%85%20Fcitx5&amp;source=https%3a%2f%2fninjatypeman.github.io%2fposts%2ffcitx5-fedora%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Fedora 安装中文输入法（Fcitx 5） on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fninjatypeman.github.io%2fposts%2ffcitx5-fedora%2f&amp;title=Fedora%20%e5%ae%89%e8%a3%85%e4%b8%ad%e6%96%87%e8%be%93%e5%85%a5%e6%b3%95%ef%bc%88Fcitx%205%ef%bc%89&amp;summary=Fedora%20%e5%ae%89%e8%a3%85%e4%b8%ad%e6%96%87%e8%be%93%e5%85%a5%e6%b3%95%ef%bc%88Fcitx%205%ef%bc%89&amp;source=https%3a%2f%2fninjatypeman.github.io%2fposts%2ffcitx5-fedora%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
@@ -322,8 +312,8 @@
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Fedora 安装 Fcitx5 on reddit"
-            href="https://reddit.com/submit?url=https%3a%2f%2fninjatypeman.github.io%2fposts%2ffcitx5-fedora%2f&title=Fedora%20%e5%ae%89%e8%a3%85%20Fcitx5">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Fedora 安装中文输入法（Fcitx 5） on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fninjatypeman.github.io%2fposts%2ffcitx5-fedora%2f&title=Fedora%20%e5%ae%89%e8%a3%85%e4%b8%ad%e6%96%87%e8%be%93%e5%85%a5%e6%b3%95%ef%bc%88Fcitx%205%ef%bc%89">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
@@ -331,7 +321,7 @@
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Fedora 安装 Fcitx5 on facebook"
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Fedora 安装中文输入法（Fcitx 5） on facebook"
             href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fninjatypeman.github.io%2fposts%2ffcitx5-fedora%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
@@ -340,8 +330,8 @@
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Fedora 安装 Fcitx5 on whatsapp"
-            href="https://api.whatsapp.com/send?text=Fedora%20%e5%ae%89%e8%a3%85%20Fcitx5%20-%20https%3a%2f%2fninjatypeman.github.io%2fposts%2ffcitx5-fedora%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Fedora 安装中文输入法（Fcitx 5） on whatsapp"
+            href="https://api.whatsapp.com/send?text=Fedora%20%e5%ae%89%e8%a3%85%e4%b8%ad%e6%96%87%e8%be%93%e5%85%a5%e6%b3%95%ef%bc%88Fcitx%205%ef%bc%89%20-%20https%3a%2f%2fninjatypeman.github.io%2fposts%2ffcitx5-fedora%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
@@ -349,8 +339,8 @@
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Fedora 安装 Fcitx5 on telegram"
-            href="https://telegram.me/share/url?text=Fedora%20%e5%ae%89%e8%a3%85%20Fcitx5&amp;url=https%3a%2f%2fninjatypeman.github.io%2fposts%2ffcitx5-fedora%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Fedora 安装中文输入法（Fcitx 5） on telegram"
+            href="https://telegram.me/share/url?text=Fedora%20%e5%ae%89%e8%a3%85%e4%b8%ad%e6%96%87%e8%be%93%e5%85%a5%e6%b3%95%ef%bc%88Fcitx%205%ef%bc%89&amp;url=https%3a%2f%2fninjatypeman.github.io%2fposts%2ffcitx5-fedora%2f">
             <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
@@ -358,8 +348,8 @@
         </a>
     </li>
     <li>
-        <a target="_blank" rel="noopener noreferrer" aria-label="share Fedora 安装 Fcitx5 on ycombinator"
-            href="https://news.ycombinator.com/submitlink?t=Fedora%20%e5%ae%89%e8%a3%85%20Fcitx5&u=https%3a%2f%2fninjatypeman.github.io%2fposts%2ffcitx5-fedora%2f">
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Fedora 安装中文输入法（Fcitx 5） on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Fedora%20%e5%ae%89%e8%a3%85%e4%b8%ad%e6%96%87%e8%be%93%e5%85%a5%e6%b3%95%ef%bc%88Fcitx%205%ef%bc%89&u=https%3a%2f%2fninjatypeman.github.io%2fposts%2ffcitx5-fedora%2f">
             <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
                 xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
                 <path

@@ -20,13 +20,13 @@
     <loc>https://ninjatypeman.github.io/tags/openrouter/</loc>
     <lastmod>2025-05-21T00:54:12+08:00</lastmod>
   </url><url>
+    <loc>https://ninjatypeman.github.io/posts/free-ds-openrouter/</loc>
+    <lastmod>2025-05-21T00:54:12+08:00</lastmod>
+  </url><url>
     <loc>https://ninjatypeman.github.io/posts/</loc>
     <lastmod>2025-05-21T00:54:12+08:00</lastmod>
   </url><url>
     <loc>https://ninjatypeman.github.io/tags/</loc>
-    <lastmod>2025-05-21T00:54:12+08:00</lastmod>
-  </url><url>
-    <loc>https://ninjatypeman.github.io/posts/free-ds-openrouter/</loc>
     <lastmod>2025-05-21T00:54:12+08:00</lastmod>
   </url><url>
     <loc>https://ninjatypeman.github.io/tags/fedora/</loc>
@@ -59,9 +59,6 @@
     <loc>https://ninjatypeman.github.io/posts/ssh-note/</loc>
     <lastmod>2025-05-10T18:22:43+08:00</lastmod>
   </url><url>
-    <loc>https://ninjatypeman.github.io/posts/fedora-config/</loc>
-    <lastmod>2025-04-18T18:10:18+08:00</lastmod>
-  </url><url>
     <loc>https://ninjatypeman.github.io/tags/git/</loc>
     <lastmod>2025-04-17T13:54:09+08:00</lastmod>
   </url><url>
@@ -77,19 +74,13 @@
     <loc>https://ninjatypeman.github.io/tags/smb/</loc>
     <lastmod>2025-04-17T02:47:51+08:00</lastmod>
   </url><url>
-    <loc>https://ninjatypeman.github.io/tags/tproxy/</loc>
-    <lastmod>2025-04-16T21:40:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ninjatypeman.github.io/tags/v2raya/</loc>
-    <lastmod>2025-04-16T21:40:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ninjatypeman.github.io/posts/tproxy-v2raya/</loc>
-    <lastmod>2025-04-16T21:40:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ninjatypeman.github.io/tags/fcitx5/</loc>
+    <loc>https://ninjatypeman.github.io/tags/fcitx-5/</loc>
     <lastmod>2025-04-07T15:41:59+08:00</lastmod>
   </url><url>
     <loc>https://ninjatypeman.github.io/posts/fcitx5-fedora/</loc>
+    <lastmod>2025-04-07T15:41:59+08:00</lastmod>
+  </url><url>
+    <loc>https://ninjatypeman.github.io/tags/ime/</loc>
     <lastmod>2025-04-07T15:41:59+08:00</lastmod>
   </url><url>
     <loc>https://ninjatypeman.github.io/categories/blog/</loc>
