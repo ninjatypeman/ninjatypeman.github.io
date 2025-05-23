@@ -75,8 +75,8 @@
   "keywords": [
     "fcitx", "fcitx5", "输入法"
   ],
-  "articleBody": "安装 Fcitx 5 安装 Fcitx 5 主程序和一些相关的模块，参考 I18N/Fcitx5\n1 2 sudo dnf install fcitx5 fcitx5-chinese-addons fcitx5-configtool fcitx5-rime fcitx5-qt fcitx5-gtk sudo dnf remove \"fcitx5*\" # 这是卸载命令 下载词库 雾凇拼音——长期维护的简体词库\n1 2 3 4 5 6 # 创建文件夹（如果不存在） mkdir -p ~/.local/share/fcitx5/rime/ # 克隆雾凇拼音这个Rime配置到本地（我克隆到了 ~/Downloads 目录） git clone https://github.com/iDvel/rime-ice.git rime --depth 1 # 复制上面克隆到本地的文件夹内的所有文件到刚创建的文件夹 cp ~/Downloads/rime/* ~/.local/share/fcitx5/rime 简单配置 通过快捷键选择输入方案\n调整每页候选词个数\n编辑 ~/.local/share/fcitx5/rime/default.yaml 文件，修改候选词个数：\n1 2 # ~/.local/share/fcitx5/rime/default.yaml page_size: 9 关闭候选词拼音注释 默认候选框会显示拼音注释，比如：你好[ni hao]，我使用小鹤双拼，所以编辑 ~/.local/share/fcitx5/rime/double_pinyin_flypy.schema.yaml，注释下面这两行就可以关闭\n1 2 3 # ~/.local/share/fcitx5/rime/double_pinyin_flypy.schema.yaml spelling_hints: 8 always_show_comments: true 然后打开 Fcitx5 Configuration 这个图形化工具添加 Rime\n环境变量 编辑 ~/.bash_profile，添加下面三行：\n1 2 3 export GTK_IM_MODULE=fcitx export QT_IM_MODULE=fcitx export XMODIFIERS=@im=fcitx 重新加载配置 通过 Gnome Tweaks 设置开机启动，重新登录或者重启，然后打字测试\nGnome 扩展 安装 Input Method Panel 扩展以实现 UI 统一、托盘显示输入法图标、调整候选词字号等 🔚\n",
-  "wordCount" : "444",
+  "articleBody": "安装 Fcitx 5 安装 Fcitx 5 主程序和一些相关的模块，参考 I18N/Fcitx5\n1 2 sudo dnf install fcitx5 fcitx5-chinese-addons fcitx5-configtool fcitx5-rime fcitx5-qt fcitx5-gtk fcitx5-autostart.noarch sudo dnf remove \"fcitx5*\" # 这是卸载命令 下载词库 雾凇拼音——长期维护的简体词库\n1 2 3 4 5 6 # 创建文件夹（如果不存在） mkdir -p ~/.local/share/fcitx5/rime/ # 克隆雾凇拼音这个Rime配置到本地（我克隆到了 ~/Downloads 目录） git clone https://github.com/iDvel/rime-ice.git rime --depth 1 # 复制上面克隆到本地的文件夹内的所有文件到刚创建的文件夹 cp ~/Downloads/rime/* ~/.local/share/fcitx5/rime 简单配置 通过快捷键选择输入方案\n修改每页候选词个数\n编辑 ~/.local/share/fcitx5/rime/default.yaml 文件，修改 page_size 这行：\n1 2 # ~/.local/share/fcitx5/rime/default.yaml page_size: 9 隐藏拼音注释 候选框默认会显示拼音注释，比如：你好[ni hao]，我使用小鹤双拼，所以编辑 ~/.local/share/fcitx5/rime/double_pinyin_flypy.schema.yaml，注释下面这两行：\n1 2 3 # ~/.local/share/fcitx5/rime/double_pinyin_flypy.schema.yaml spelling_hints: 8 always_show_comments: true 添加 Rime 打开 Fcitx5 Configuration 这个图形化工具添加 Rime\n环境变量 编辑 ~/.bash_profile，添加下面三行：\n1 2 3 export GTK_IM_MODULE=fcitx export QT_IM_MODULE=fcitx export XMODIFIERS=@im=fcitx 重新加载配置 通过 Gnome Tweaks 设置开机启动，重新登录或者重启，然后打字测试\nGnome 扩展 安装 Input Method Panel 扩展以实现 UI 统一、托盘显示输入法图标、调整候选词字号等 🔚\n",
+  "wordCount" : "437",
   "inLanguage": "en",
   "datePublished": "2025-04-07T15:41:59+08:00",
   "dateModified": "2025-04-07T15:41:59+08:00",
@@ -182,7 +182,7 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install fcitx5 fcitx5-chinese-addons fcitx5-configtool fcitx5-rime fcitx5-qt fcitx5-gtk
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dnf install fcitx5 fcitx5-chinese-addons fcitx5-configtool fcitx5-rime fcitx5-qt fcitx5-gtk fcitx5-autostart.noarch
 </span></span><span class="line"><span class="cl">sudo dnf remove <span class="s2">&#34;fcitx5*&#34;</span>   <span class="c1"># 这是卸载命令</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -212,10 +212,10 @@
 <p>通过快捷键选择输入方案</p>
 </li>
 <li>
-<p>调整每页候选词个数</p>
+<p>修改每页候选词个数</p>
 </li>
 </ul>
-<p>编辑 <em><strong>~/.local/share/fcitx5/rime/default.yaml</strong></em> 文件，修改候选词个数：</p>
+<p>编辑 <em><strong>~/.local/share/fcitx5/rime/default.yaml</strong></em> 文件，修改 <code>page_size</code> 这行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -227,9 +227,9 @@
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>关闭候选词拼音注释</li>
+<li>隐藏拼音注释</li>
 </ul>
-<p>默认候选框会显示拼音注释，比如：你好[ni hao]，我使用小鹤双拼，所以编辑 <em><strong>~/.local/share/fcitx5/rime/double_pinyin_flypy.schema.yaml</strong></em>，注释下面这两行就可以关闭</p>
+<p>候选框默认会显示拼音注释，比如：你好[ni hao]，我使用小鹤双拼，所以编辑 <em><strong>~/.local/share/fcitx5/rime/double_pinyin_flypy.schema.yaml</strong></em>，注释下面这两行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -242,7 +242,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">always_show_comments</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>然后打开 Fcitx5 Configuration 这个图形化工具添加 Rime</p>
+</div><ul>
+<li>添加 Rime</li>
+</ul>
+<p>打开 Fcitx5 Configuration 这个图形化工具添加 Rime</p>
 <ul>
 <li>环境变量</li>
 </ul>
